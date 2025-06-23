@@ -1,0 +1,17 @@
+name: DiscordWhitelist
+version: 1.0.0
+main: dev.moonu.Whitelist.Main
+api-version: 1.20
+description: A plugin to manage Minecraft whitelist via Discord bot commands
+author: MoonVN571
+
+commands:
+  discordwhitelist:
+    description: Reload the DiscordWhitelist plugin configuration
+    aliases: [dw]
+    permission: discordwhitelist.reload
+
+permissions:
+  discordwhitelist.reload:
+    description: Allows reloading the DiscordWhitelist plugin
+    default: op
