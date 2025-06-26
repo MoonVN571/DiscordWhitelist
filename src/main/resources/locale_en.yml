@@ -1,0 +1,22 @@
+# English locale file for DiscordWhitelist Plugin
+messages:
+  # Discord bot messages
+  discord:
+    no_permission: "❌ **|** You don't have permission to use this command!"
+    player_added: "✅ **|** Added `{player}` to server whitelist"
+    player_already_whitelisted: "ℹ️ **|** `{player}` is already whitelisted"
+    player_removed: "❌ **|** Removed `{player}` from server whitelist"
+    player_not_whitelisted: "ℹ️ **|** `{player}` is not on the whitelist"
+    whitelist_list: "📜 **|** Whitelisted Players: {list}"
+    invalid_command: "❌ **|** Invalid command. Usage: {prefix}whitelist <add|remove|list|help> [username]"
+    help_message: "📋 **|** **Discord Whitelist Commands:**\n{prefix}whitelist add <username> - Add player to whitelist\n{prefix}whitelist remove <username> - Remove player from whitelist\n{prefix}whitelist list - Show all whitelisted players\n{prefix}wl - Short form of whitelist command"
+    command_error: "❌ **|** An error occurred while executing the command. Please try again."
+    
+  # In-game command messages
+  game:
+    reload_success: "§a[DiscordWhitelist] Configuration reloaded successfully."
+    reload_failed: "§c[DiscordWhitelist] Failed to reload configuration. Check console for errors."
+    command_usage: "§c[DiscordWhitelist] Usage: /discordwhitelist <reload|status>"
+    unknown_subcommand: "§c[DiscordWhitelist] Unknown subcommand. Use /discordwhitelist for help."
+    no_permission: "§c[DiscordWhitelist] You don't have permission to use this command."
+    bot_status: "§a[DiscordWhitelist] Discord Bot Status: §f{status}"

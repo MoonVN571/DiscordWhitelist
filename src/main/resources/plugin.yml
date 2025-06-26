@@ -7,11 +7,24 @@ author: MoonVN571
 
 commands:
   discordwhitelist:
-    description: Reload the DiscordWhitelist plugin configuration
+    description: Manage the DiscordWhitelist plugin
     aliases: [dw]
-    permission: discordwhitelist.reload
+    usage: /<command> <reload|status>
+    permission: discordwhitelist.use
 
 permissions:
-  discordwhitelist.reload:
+  discordwhitelist.admin:
+    description: Admin permission for DiscordWhitelist
+    default: op
+    children:
+      discordwhitelist.use: true
+      discordwhitelist.admin.reload: true
+      discordwhitelist.admin.status: true
+
+  discordwhitelist.admin.reload:
     description: Allows reloading the DiscordWhitelist plugin
+    default: op
+
+  discordwhitelist.admin.status:
+    description: Allows checking Discord bot status
     default: op

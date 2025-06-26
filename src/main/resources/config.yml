@@ -5,3 +5,8 @@ discord:
   authorized_roles:
     - "123456789012345678"
     - "987654321098765432"
+
+# Plugin settings
+settings:
+  # Language setting: en (English), vi (Vietnamese)
+  locale: "vi"

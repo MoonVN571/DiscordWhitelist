@@ -1,0 +1,22 @@
+# Vietnamese locale file for DiscordWhitelist Plugin
+messages:
+  # Discord bot messages
+  discord:
+    no_permission: "❌ **|** Bạn không có quyền để sử dụng lệnh này!"
+    player_added: "✅ **|** Đã thêm `{player}` vào whitelist máy chủ!"
+    player_already_whitelisted: "ℹ️ **|** `{player}` đã có trong whitelist!"
+    player_removed: "❌ **|** Đã xóa `{player}` khỏi whitelist máy chủ!"
+    player_not_whitelisted: "ℹ️ **|** `{player}` không có trong whitelist!"
+    whitelist_list: "📜 **|** Người chơi trong whitelist: {list}"
+    invalid_command: "❌ **|** Lệnh không hợp lệ. Sử dụng: {prefix}whitelist <add|remove|list|help> [tên người chơi]"
+    help_message: "📋 **|** **Lệnh Discord Whitelist:**\n{prefix}whitelist add <tên> - Thêm người chơi vào whitelist\n{prefix}whitelist remove <tên> - Xóa người chơi khỏi whitelist\n{prefix}whitelist list - Hiển thị tất cả người chơi trong whitelist\n{prefix}wl - Dạng ngắn của lệnh whitelist"
+    command_error: "❌ **|** Đã xảy ra lỗi khi thực hiện lệnh. Vui lòng thử lại."
+    
+  # In-game command messages
+  game:
+    reload_success: "§a[DiscordWhitelist] Đã tải lại cấu hình thành công."
+    reload_failed: "§c[DiscordWhitelist] Không thể tải lại cấu hình. Kiểm tra console để biết lỗi."
+    command_usage: "§c[DiscordWhitelist] Sử dụng: /discordwhitelist <reload|status>"
+    unknown_subcommand: "§c[DiscordWhitelist] Lệnh con không xác định. Sử dụng /discordwhitelist để xem trợ giúp."
+    no_permission: "§c[DiscordWhitelist] Bạn không có quyền sử dụng lệnh này."
+    bot_status: "§a[DiscordWhitelist] Trạng thái Discord Bot: §f{status}"
