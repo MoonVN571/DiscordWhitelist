@@ -1,13 +1,12 @@
-name: CI
+name: Build Latest
 
 on:
   push:
-    branches: [ main, master, develop ]
-  pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
-  test:
+  build-latest:
     runs-on: ubuntu-latest
     
     steps:
@@ -27,32 +26,26 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
         
-    - name: Validate Maven project
-      run: mvn validate
+    - name: Build with Maven
+      run: mvn clean compile package
       
-    - name: Compile project
-      run: mvn clean compile
-      
-    - name: Run tests (if any)
-      run: mvn test
-      continue-on-error: true
-      
-    - name: Package plugin
-      run: mvn package
-      
-    - name: Upload build artifacts (for testing)
+    - name: Upload latest build
       uses: actions/upload-artifact@v4
       with:
-        name: discord-whitelist-dev-build
+        name: discord-whitelist-latest
         path: target/DiscordWhitelist-*.jar
         retention-days: 30
-      
-    - name: Upload build artifacts (for debugging)
+        
+    - name: Create build info
+      run: |
+        echo "Build Date: $(date)" > build-info.txt
+        echo "Commit: ${{ github.sha }}" >> build-info.txt
+        echo "Branch: ${{ github.ref_name }}" >> build-info.txt
+        echo "Workflow: ${{ github.run_number }}" >> build-info.txt
+        
+    - name: Upload build info
       uses: actions/upload-artifact@v4
-      if: failure()
       with:
-        name: debug-artifacts
-        path: |
-          target/
-          pom.xml
-        retention-days: 7
+        name: build-info
+        path: build-info.txt
+        retention-days: 30

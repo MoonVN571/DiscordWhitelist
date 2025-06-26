@@ -35,9 +35,9 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: plugin-jar
-        path: target/*.jar
-        retention-days: 30
+        name: discord-whitelist-release-${{ github.ref_name }}
+        path: target/DiscordWhitelist-*.jar
+        retention-days: 90
         
   release:
     needs: build
@@ -51,7 +51,7 @@ jobs:
     - name: Download build artifacts
       uses: actions/download-artifact@v4
       with:
-        name: plugin-jar
+        name: discord-whitelist-release-${{ github.ref_name }}
         path: ./artifacts
         
     - name: Get version from tag

@@ -19,6 +19,11 @@ This project includes several GitHub Actions workflows for automated building, t
 - **Purpose**: Publishes the plugin to GitHub Packages Maven repository
 - **Actions**: Builds and deploys the plugin to GitHub Packages
 
+### 4. Build Latest (`build-latest.yml`)
+- **Triggers**: Push to main/master branches, Manual dispatch
+- **Purpose**: Provides latest development builds
+- **Actions**: Builds and uploads the latest version as artifacts
+
 ## How to Use
 
 ### Creating a Release
@@ -33,6 +38,27 @@ This project includes several GitHub Actions workflows for automated building, t
    - Build the plugin
    - Create a GitHub release
    - Upload the JAR file as a release asset
+
+### Getting Built Files
+
+#### Option 1: GitHub Releases (Recommended)
+1. Go to your repository on GitHub
+2. Click "Releases" on the right sidebar
+3. Download the JAR file from the latest release
+
+#### Option 2: Build Artifacts
+1. Go to the "Actions" tab in your repository
+2. Click on a completed workflow run
+3. Scroll down to "Artifacts" section
+4. Download the artifact (e.g., `discord-whitelist-latest`, `discord-whitelist-release-v1.0.1`)
+
+**Available Artifacts:**
+- `discord-whitelist-latest` - Latest development build (from main/master branch)
+- `discord-whitelist-release-vX.X.X` - Release builds (from tags)
+- `discord-whitelist-dev-build` - CI builds (from any branch)
+
+#### Option 3: GitHub Packages (For Maven)
+Access via Maven repository (see GitHub Packages section below)
 
 ### Manual Workflow Dispatch
 
