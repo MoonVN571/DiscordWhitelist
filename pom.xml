@@ -6,7 +6,7 @@
 
     <groupId>dev.moonu</groupId>
     <artifactId>DiscordWhitelist</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>DiscordWhitelist</name>
