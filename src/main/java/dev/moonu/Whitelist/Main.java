@@ -29,10 +29,13 @@ public class Main extends JavaPlugin {
         messageManager = new MessageManager(this);
         whitelistManager = new WhitelistManager(this, messageManager);
         discordBotManager = new DiscordBotManager(this, messageManager);
-        discordCommandManager = new DiscordCommandManager(this, messageManager, "!");
         gameCommandLoader = new GameCommandLoader(this);
         
         loadConfiguration();
+        
+        // Initialize discord command manager with the configured prefix
+        discordCommandManager = new DiscordCommandManager(this, messageManager, commandPrefix);
+        
         startDiscordBot();
         registerCommands();
     }
@@ -49,7 +52,7 @@ public class Main extends JavaPlugin {
         config = getConfig();
 
         commandPrefix = config.getString("discord.prefix", "!");
-        String locale = config.getString("locale", "en");
+        String locale = config.getString("settings.locale", "en");
         
         // Load messages with the specified locale
         messageManager.loadConfiguration(config, locale);
@@ -87,6 +90,9 @@ public class Main extends JavaPlugin {
         // Reload configuration
         reloadConfig();
         loadConfiguration();
+        
+        // Recreate discord command manager with updated prefix
+        discordCommandManager = new DiscordCommandManager(this, messageManager, commandPrefix);
         
         // Restart Discord bot
         startDiscordBot();

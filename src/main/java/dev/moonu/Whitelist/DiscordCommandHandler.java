@@ -45,9 +45,9 @@ public class DiscordCommandHandler extends ListenerAdapter {
         if (fullArgs.length < 2) return;
         
         // Check if it starts with a command prefix and is a whitelist command
-        if (!content.startsWith("!") && !content.startsWith(commandPrefix)) return;
+        if (!content.startsWith(commandPrefix)) return;
         
-        String command = fullArgs[0].substring(1);
+        String command = fullArgs[0].substring(commandPrefix.length());
         if (!command.equals("wl") && !command.equals("whitelist")) return;
         
         // Check authorization
