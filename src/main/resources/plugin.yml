@@ -1,5 +1,5 @@
 name: DiscordWhitelist
-version: 1.0.0
+version: 1.0.1
 main: dev.moonu.Whitelist.Main
 api-version: 1.20
 description: A plugin to manage Minecraft whitelist via Discord bot commands
