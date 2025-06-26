@@ -93,7 +93,7 @@ public class WhitelistManager {
      */
     public void logWhitelistAction(String action, String targetUsername, String authorDisplayName, String authorId) {
         try (FileWriter writer = new FileWriter(logFile, true)) {
-            writer.write("[" + java.time.LocalDateTime.now() + "] " + action + " " + targetUsername + " by " + authorDisplayName + "(" + authorId + ")\n");
+            writer.write("[" + java.time.LocalDateTime.now() + "] " + action + " " + targetUsername + " by " + authorDisplayName + " (" + authorId + ")\n");
         } catch (IOException e) {
             Map<String, String> placeholders = new HashMap<>();
             placeholders.put("error", e.getMessage());
