@@ -30,10 +30,10 @@ public class DiscordCommandManager extends ListenerAdapter {
     /**
      * Register all Discord commands
      */
-    public void registerCommands(Map<String, Boolean> authorizedRoleIds) {
+    public void registerCommands(Map<String, Boolean> authorizedUserIds) {
         // Register whitelist command
         WhitelistDiscordCommand whitelistCommand = new WhitelistDiscordCommand(
-            plugin, messageManager, plugin.getWhitelistManager(), authorizedRoleIds);
+            plugin, messageManager, plugin.getWhitelistManager(), authorizedUserIds);
         registerCommand(whitelistCommand);
         
         plugin.getLogger().info("Registered " + commands.size() + " Discord commands");

@@ -147,9 +147,9 @@ locale: "en"  # Language: en, vi
 discord:
   token: "YOUR_BOT_TOKEN"
   prefix: "!"
-  authorized_roles:
-    - "ROLE_ID_1"
-    - "ROLE_ID_2"
+  authorized_user_ids:
+    - "USER_ID_1"
+    - "USER_ID_2"
 ```
 
 ### 🌍 **Localization**

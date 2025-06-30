@@ -15,14 +15,14 @@ public class WhitelistDiscordCommand implements DiscordCommand {
     private final Main plugin;
     private final MessageManager messageManager;
     private final WhitelistManager whitelistManager;
-    private final Map<String, Boolean> authorizedRoleIds;
+    private final Map<String, Boolean> authorizedUserIds;
     
     public WhitelistDiscordCommand(Main plugin, MessageManager messageManager, 
-                                 WhitelistManager whitelistManager, Map<String, Boolean> authorizedRoleIds) {
+                                 WhitelistManager whitelistManager, Map<String, Boolean> authorizedUserIds) {
         this.plugin = plugin;
         this.messageManager = messageManager;
         this.whitelistManager = whitelistManager;
-        this.authorizedRoleIds = authorizedRoleIds;
+        this.authorizedUserIds = authorizedUserIds;
     }
     
     @Override
@@ -77,7 +77,7 @@ public class WhitelistDiscordCommand implements DiscordCommand {
     public boolean hasPermission(MessageReceivedEvent event) {
         return event.getMember() != null &&
                 event.getMember().getRoles().stream()
-                        .anyMatch(role -> authorizedRoleIds.containsKey(role.getId()));
+                        .anyMatch(role -> authorizedUserIds.containsKey(role.getId()));
     }
     
     /**

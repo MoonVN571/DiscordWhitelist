@@ -2,7 +2,7 @@ discord:
   # The change applied when server restart
   token: "YOUR_BOT_TOKEN"
   prefix: "m"
-  authorized_roles:
+  authorized_user_ids:
     - "123456789012345678"
     - "987654321098765432"
 

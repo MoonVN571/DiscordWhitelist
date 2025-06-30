@@ -15,15 +15,15 @@ public class DiscordCommandHandler extends ListenerAdapter {
     private final Main plugin;
     private final MessageManager messageManager;
     private final WhitelistManager whitelistManager;
-    private final Map<String, Boolean> authorizedRoleIds;
+    private final Map<String, Boolean> authorizedUserIds;
     private final String commandPrefix;
     
     public DiscordCommandHandler(Main plugin, MessageManager messageManager, WhitelistManager whitelistManager, 
-                               Map<String, Boolean> authorizedRoleIds, String commandPrefix) {
+                               Map<String, Boolean> authorizedUserIds, String commandPrefix) {
         this.plugin = plugin;
         this.messageManager = messageManager;
         this.whitelistManager = whitelistManager;
-        this.authorizedRoleIds = authorizedRoleIds;
+        this.authorizedUserIds = authorizedUserIds;
         this.commandPrefix = commandPrefix;
     }
     
@@ -47,7 +47,7 @@ public class DiscordCommandHandler extends ListenerAdapter {
         // Check if it starts with a command prefix and is a whitelist command
         if (!content.startsWith(commandPrefix)) return;
         
-        String command = fullArgs[0].substring(commandPrefix.length());
+        String command = fullArgs[0].substring(commandPrefix.length()).toLowerCase();
         if (!command.equals("wl") && !command.equals("whitelist")) return;
         
         // Check authorization
@@ -84,7 +84,7 @@ public class DiscordCommandHandler extends ListenerAdapter {
     private boolean isAuthorized(MessageReceivedEvent event) {
         return event.getMember() != null &&
                 event.getMember().getRoles().stream()
-                        .anyMatch(role -> authorizedRoleIds.containsKey(role.getId()));
+                        .anyMatch(role -> authorizedUserIds.containsKey(role.getId()));
     }
     
     /**

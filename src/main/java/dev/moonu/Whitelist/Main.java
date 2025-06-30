@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 public class Main extends JavaPlugin {
-    private final Map<String, Boolean> authorizedRoleIds = new HashMap<>();
+    private final Map<String, Boolean> authorizedUserIds = new HashMap<>();
     private String commandPrefix;
     private FileConfiguration config;
     
@@ -57,9 +57,9 @@ public class Main extends JavaPlugin {
         // Load messages with the specified locale
         messageManager.loadConfiguration(config, locale);
         
-        authorizedRoleIds.clear();
-        for (String roleId : config.getStringList("discord.authorized_roles")) {
-            authorizedRoleIds.put(roleId, true);
+        authorizedUserIds.clear();
+        for (String roleId : config.getStringList("discord.authorized_user_ids")) {
+            authorizedUserIds.put(roleId, true);
         }
     }
 
@@ -67,7 +67,7 @@ public class Main extends JavaPlugin {
         String token = config.getString("discord.token");
         
         // Register Discord commands
-        discordCommandManager.registerCommands(authorizedRoleIds);
+        discordCommandManager.registerCommands(authorizedUserIds);
         
         // Start the bot
         discordBotManager.startBot(token, discordCommandManager);
