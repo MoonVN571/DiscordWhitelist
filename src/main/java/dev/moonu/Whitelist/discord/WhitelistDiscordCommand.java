@@ -75,9 +75,7 @@ public class WhitelistDiscordCommand implements DiscordCommand {
     
     @Override
     public boolean hasPermission(MessageReceivedEvent event) {
-        return event.getMember() != null &&
-                event.getMember().getRoles().stream()
-                        .anyMatch(role -> authorizedUserIds.containsKey(role.getId()));
+        return authorizedUserIds.containsKey(event.getAuthor().getId());
     }
     
     /**

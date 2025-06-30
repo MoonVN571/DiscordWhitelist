@@ -82,9 +82,7 @@ public class DiscordCommandHandler extends ListenerAdapter {
      * @return true if authorized, false otherwise
      */
     private boolean isAuthorized(MessageReceivedEvent event) {
-        return event.getMember() != null &&
-                event.getMember().getRoles().stream()
-                        .anyMatch(role -> authorizedUserIds.containsKey(role.getId()));
+        return this.authorizedUserIds.containsKey(event.getAuthor().getId());
     }
     
     /**
